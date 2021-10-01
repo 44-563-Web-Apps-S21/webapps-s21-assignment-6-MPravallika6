@@ -8,28 +8,28 @@
     <h1>Pass Phrase By Maddelavedu Pravallika</h1>
     <h2>Getting Input</h2>
     <form class="form-group">
-        <label for="form1_secret_word">Enter the secret word </label>
+        <label for="form1_secret_word">Enter the secret Phrase </label>
         <input type="password" id="form1_secret_word" name="form1_secret_word" min=10 max=50 step=2 value="Secret">
          <br>
 
-        <label for="form1_guess_word">Enter a guess</label>
+        <label for="form1_guess_word">Enter a Phrase</label>
         <input type="text" id="form1_guess_word" name="form1_guess_word" autofocus> 
         <br>
 
-        <input type="button" onclick=" processGuess()" value="Check the guess">
+        <input type="button" onclick=" processPhrase()" value="Check the Phrase">
     </form>
 
 
-    <p id="result">Your guess count will be shown here. </p>
-    <div class="container">
-        <img id="plantImage" src="Tulipa.jpg" alt="Tulipa image" width="200" height="200" onclick="rotateImage()">
-    </div>
+    <p id="result">Your Phrase count will be shown here. </p>
+    <!-- <div class="container"> 
+         <img id="plantImage" src="Tulipa.jpg" alt="Tulipa image" width="200" height="200" onclick="rotateImage()">
+     </div> -->
 
     <script>
         correct = 0;
             wrong = 0;
 
-        function processGuess() {
+        function processPhrase() {
             
             console.log("Checking the Guess......")
             secret_Word = document.getElementById("form1_secret_word").value
@@ -38,47 +38,47 @@
             result = document.getElementById("result")
             if (confirm_guess) {
                 if (secret_Word.localeCompare(guess_word) == 0) {
-                    alert("Congratulations.")
+                    alert("Access Allowed.")
                     correct = correct + 1
                     result.innerHTML = "Correct guess Count: " + correct + "<br>" +"Wrong guess Count: " + wrong
                 }
                 else
                 {
-                    alert("Sorry")
+                    alert("Access Denied")
                     wrong = wrong + 1
                     result.innerHTML = "Correct guess Count: " + correct + "<br>" +"Wrong guess Count: " + wrong
                 }
                 
             } else {
-                alert("Please guess the word again.!!!")
+                alert("Please Phrase the word again.!!!")
             }
         }
         
-        function rotateImage() {
-    switch(currentImage) {
-        case 0: {
-            currentImage =1;
-            image.src ='nature plant.jpg';
-            break;
-        }
-        case 1: {
-            currentImage = 2;
-            image.src = 'lotus.jpeg';
+//         function rotateImage() {
+//     switch(currentImage) {
+//         case 0: {
+//             currentImage =1;
+//             image.src ='nature plant.jpg';
+//             break;
+//         }
+//         case 1: {
+//             currentImage = 2;
+//             image.src = 'lotus.jpeg';
 
-            break;
-        }
-        case 2: {
-            currentImage = 0;
-            image.src = 'Tulipa.jpg';
+//             break;
+//         }
+//         case 2: {
+//             currentImage = 0;
+//             image.src = 'Tulipa.jpg';
 
-            break;
-        }
-        default: {
-            break;
-        }
-    }
-}
-    </script>
+//             break;
+//         }
+//         default: {
+//             break;
+//         }
+//     }
+//  }
+     </script>  
 
 
 
