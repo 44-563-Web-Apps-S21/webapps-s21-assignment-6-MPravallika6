@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
- <head>
-     <title>Javascript And DOM</title>
-     <meta charset=  "utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-     
- </head>
+
+<head>
+    <title>Javascript And DOM</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
 <body>
     <h1>Pass Phrase By Maddelavedu Pravallika</h1>
     <h2>Getting Input</h2>
     <form class="form-group">
         <label for="form1_secret_word">Enter the secret Phrase </label>
         <input type="password" id="form1_secret_word" name="form1_secret_word" min=10 max=50 step=2 value="Secret">
-         <br>
+        <br>
 
         <label for="form1_guess_word">Enter a Phrase</label>
-        <input type="text" id="form1_guess_word" name="form1_guess_word" autofocus> 
+        <input type="text" id="form1_guess_word" name="form1_guess_word" autofocus>
         <br>
 
         <input type="button" onclick=" processPhrase()" value="Check the Phrase">
@@ -28,15 +30,15 @@
 
     <p id="result">Your Phrase count will be shown here. </p>
     <div class="container">
-        <img src="penguins.jpg" id="result1" class="img-fluid" onclick="newImage()" alt="penguins Image" height="200" width="200">
+        <img id="result1" src="penguins.jpg" class="img-fluid" alt="penguins Image" onclick="newImage(this)"
+            height="200" width="200">
     </div>
 
     <script>
         correct = 0;
-            wrong = 0;
-
+        wrong = 0;
+        let currentImage = 1;
         function processPhrase() {
-            
             console.log("Checking the Guess......")
             secret_Word = document.getElementById("form1_secret_word").value
             guess_word = document.getElementById("form1_guess_word").value
@@ -46,38 +48,36 @@
                 if (secret_Word.localeCompare(guess_word) == 0) {
                     alert("Access Allowed.")
                     correct = correct + 1
-                    result.innerHTML = "Correct guess Count: " + correct + "<br>" +"Wrong guess Count: " + wrong
+                    result.innerHTML = "Correct guess Count: " + correct + "<br>" + "Wrong guess Count: " + wrong
                 }
-                else
-                {
+                else {
                     alert("Access Denied")
                     wrong = wrong + 1
-                    result.innerHTML = "Correct guess Count: " + correct + "<br>" +"Wrong guess Count: " + wrong
+                    result.innerHTML = "Correct guess Count: " + correct + "<br>" + "Wrong guess Count: " + wrong
                 }
-                
             } else {
                 alert("Please Phrase the word again.!!!")
             }
         }
-
-        function newImage(){
-    switch(currentImage){
-        case 1: document.getElementById("result1").src="penguins.jpg";
-                currentImage=currentImage+1;
-                break;
-        case 2: document.getElementById("result1").src="Affenpinscher.jpg";
-                currentImage=currentImage+1;
-                break;
-        case 3: document.getElementById("result1").src="gorilla.jpg";
-                currentImage=1;
-                break;
-        default: currentImage=1;
-    }
-}
-
-     </script>  
+        function newImage(img) {
+            switch (currentImage) {
+                case 1:
+                    document.getElementById("result1").src = "penguins.jpg";
+                    currentImage = currentImage + 1;
+                    break;
+                case 2: document.getElementById("result1").src = "Affenpinscher.jpg";
+                    currentImage = currentImage + 1;
+                    break;
+                case 3: document.getElementById("result1").src = "gorilla.jpg";
+                    currentImage = 1;
+                    break;
+                default: currentImage = 1;
+            }
+        }
+    </script>
 
 
 
 </body>
-</html> 
+
+</html>
