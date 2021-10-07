@@ -35,29 +35,38 @@
     </div>
 
     <script>
+        counter = 0;
         correct = 0;
         wrong = 0;
         let currentImage = 1;
+        function giveAlert(){
+    alert("Account locked")
+}
         function processPhrase() {
             console.log("Checking the Guess......")
             secret_Word = document.getElementById("form1_secret_word").value
             guess_word = document.getElementById("form1_guess_word").value
             confirm_guess = confirm("Is this guess word? " + guess_word)
             result = document.getElementById("result")
-            if (confirm_guess) {
-                if (secret_Word.localeCompare(guess_word) == 0) {
-                    alert("Access Allowed.")
+            
+            if (confirm_guess==secret_Word) {
+                
                     correct = correct + 1
                     result.innerHTML = "Correct guess Count: " + correct + "<br>" + "Wrong guess Count: " + wrong
-                }
+                }else if(wrong > 2){
+        document.getElementById("btn1").onclick = giveAlert()
+        giveAlert()
+        wrong++ 
+        out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;}
                 else {
                     alert("Access Denied")
                     wrong = wrong + 1
                     result.innerHTML = "Correct guess Count: " + correct + "<br>" + "Wrong guess Count: " + wrong
                 }
-            } else {
-                alert("Please Phrase the word again.!!!")
-            }
+             
+            
+        
+        
         }
         function newImage(img) {
             switch (currentImage) {
